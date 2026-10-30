@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-slate-800 antialiased min-h-screen;
+    /* iOS Safari fixes */
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    /* Prevent iOS zoom on input focus */
+    font-size: 16px;
+  }
+  
+  /* iOS Safari viewport fixes */
+  html {
+    height: 100%;
+    /* Prevent iOS bounce scroll */
+    overscroll-behavior: none;
+  }
+  
+  /* Fix iOS input styling */
+  input, textarea, select {
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    /* Prevent iOS zoom on focus */
+    font-size: 16px;
+  }
+  
+  /* Fix iOS button styling */
+  button {
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  /* Gradient Button */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-green-400 to-blue-400 text-white font-semibold py-2.5 px-5 sm:py-3 sm:px-6 rounded-2xl shadow-md hover:from-green-500 hover:to-blue-500 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5 text-sm sm:text-base;
+  }
+  
+  /* Card Component */
+  .card {
+    @apply bg-white rounded-2xl shadow-md p-4 sm:p-6 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  /* Gradient Header */
+  .gradient-header {
+    @apply bg-gradient-to-r from-green-400 to-blue-400 text-white;
+  }
+  
+  /* Loading Spinner */
+  .spinner {
+    @apply inline-block w-6 h-6 sm:w-8 sm:h-8 border-4 border-gray-200 border-t-green-400 rounded-full animate-spin;
+  }
+  
+  /* Responsive Container */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-4 sm:py-6 lg:py-8;
+  }
+}
+
+/* Leaflet map styles */
+.leaflet-container {
+  @apply rounded-2xl shadow-md;
+  z-index: 1;
+  position: relative;
+}
+
+/* Ensure leaflet panes don't overlap modals */
+/* Ensure leaflet panes don't overlap modals */
+/* .leaflet-pane {
+  z-index: auto;
+} */

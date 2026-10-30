@@ -1,0 +1,559 @@
+1. What this application is
+Purpose
+A MERN (MongoDB, Express, React, Node) application to track field salespersons:
+Assign locations and routes.
+Capture GPS‑verified visit reports with photo proof.
+Track live locations on a map.
+Manage expenses and approvals.
+Provide notifications and performance ratings.
+Main user roles
+Admin
+Creates and manages salespersons.
+Assigns locations (with GPS coordinates and radius).
+Monitors live locations and visit status.
+Reviews visit reports and expenses.
+Sends notifications.
+Salesperson
+Logs in on mobile/desktop.
+Sees daily assignments on a map.
+Goes to each location, submits visit report + photos + GPS.
+Submits expenses and tracks approval status.
+Sees their own performance rating and stats.
+2. Tech stack
+Backend (
+backend/
+)
+Node.js, Express.js (
+server.js
+).
+MongoDB + Mongoose (config/db.js, models/*.js).
+JWT auth with:
+jsonwebtoken (sign/verify tokens).
+cookie-parser (HTTP‑only cookie ctoken).
+Security
+helmet (security headers).
+cors with explicit allowedOrigins and FRONTEND_URL.
+express-rate-limit (on auth & other sensitive routes).
+Uploads & files
+multer (image and bill uploads to 
+uploads/
+ and uploads/expenses/).
+Utilities
+Distance/Haversine (utils/calculateDistance, utils/distance).
+Validation (utils/validation).
+Rating calculation helper (utils/ratingUpdater).
+Reverse geocoding (utils/geocoding).
+Other
+XLSX export (xlsx) for expenses.
+Email service (services/emailService) for visit/expense emails.
+Notification cleanup service (services/notificationCleanup).
+Frontend (
+frontend/
+)
+React 18 + Vite (
+main.jsx
+, 
+vite.config.js
+).
+Routing: React Router v6 (
+App.jsx
+).
+UI & UX
+TailwindCSS (
+tailwind.config.js
+, 
+styles.css
+).
+Framer Motion (animations).
+Lucide React (icons).
+Maps & GPS
+Leaflet + React‑Leaflet (components/MapComponent.jsx).
+Browser Geolocation API for current location.
+HTTP
+Axios (
+src/api.js
+) with:
+VITE_API_URL base URL.
+withCredentials: true for cookies.
+JWT from localStorage added to Authorization header.
+Notifications
+Notification context (contexts/NotificationContext).
+Toast UI (ToastNotification).
+PWA hint
+Service worker registration in 
+main.jsx
+ for mobile support.*
+3. High‑level architecture
+Backend entry: 
+backend/server.js
+Loads 
+.env
+, connects MongoDB (connectDB()).
+Sets security middleware and CORS.
+Registers routes:
+/auth → authRoutes
+/salesperson → salesRoutes
+/admin → adminRoutes
+/visit-reports → visitReportRoutes
+/expenses → expenseRoutes
+/notifications → notificationRoutes
+Serves 
+/uploads
+ statically for images.
+Starts notification cleanup service.
+Frontend entry: 
+frontend/src/main.jsx
+ → 
+App.jsx
+Wraps app in NotificationProvider and NotificationErrorBoundary.
+Defines routes:
+/login
+/dashboard (salesperson)
+/visit/:assignmentId/:placeId
+/expenses/create, /expenses/view
+/notifications
+/admin/dashboard, /admin/map, /admin/assign, /admin/tracking/:id
+/admin/visit-reports, /admin/expense-reports, /admin/salesperson-management
+Data flow (typical)
+React page → 
+api.js
+ (Axios) → Express route → Controller → Mongoose model → MongoDB.
+Response → Controller → Express → Axios → React page UI.
+4. Core backend modules
+4.1 Authentication (
+authController.js
+, authRoutes.js, authMiddleware.js)
+Login (POST /auth/login)
+Finds Salesperson by email.
+Verifies password with bcrypt.
+Issues JWT { id, role } with expiresIn: '24h'.
+Sets cookie ctoken (httpOnly, secure flags) and returns { token, user }.
+Logs login activity (LoginActivity) and optionally reverse‑geocodes location.
+Register (POST /auth/register)
+Protected by custom header x-app-key === APP_KEY for security.
+Validates email/password format.
+Creates new Salesperson with role default salesperson.
+Admin accounts must be promoted manually in DB (README describes this).
+Logout (POST /auth/logout)
+Clears cookie and logs logout activity.
+Middleware
+authMiddleware:
+Reads JWT from Authorization: Bearer OR ctoken cookie.
+Verifies with JWT_SECRET and sets req.user.
+adminMiddleware:
+Checks req.user.role === 'admin'.
+limiter:
+Rate‑limits sensitive routes (auth, sales, admin, etc.).
+4.2 Salesperson operations (
+salesController.js
+, salesRoutes.js)
+Get assignments (GET /salesperson/:id/assignments)
+Validates ObjectId.
+Only admin or the same salesperson can view these.
+Returns sorted Assignment docs.
+Upload visit & photo (POST /salesperson/upload-photo)
+multer handles up to 5 images, stored under 
+uploads/
+.
+Body includes:
+assignmentId, placeId, lat, lng
+Full visit report fields (company, mill details, competitor, requirement, siteVisited flags, etc.).
+Steps:
+Validate ownership of assignment and place.
+Calculate distance between submitted GPS and assigned place (calculateDistance).
+Mark visit as suspicious if distance > 100m.
+Store main photoUrl + additionalPhotoUrls.
+Update place fields in Assignment.places (visited, verified, visitedAt, distanceTraveled).
+Update assignment.totalDistance and status.
+Save:
+PhotoUpload (legacy GPS + photo record).
+VisitReport (full structured report).
+Recalculate salesperson rating (
+updateSalespersonRating
+, Salesperson.calculateRating).
+Create system notifications for all admins (via 
+createSystemNotification
+).
+Send email to each admin (sendVisitCompletionEmail).
+Update salesperson’s currentLocation and lastActive.
+Update location (POST /salesperson/update-location)
+Updates Salesperson.currentLocation and lastActive.
+Get own rating (GET /salesperson/my-rating)
+Returns name, email, rating, performanceStats, dateJoined, isActive.
+4.3 Admin features (adminRoutes.js, 
+adminController.js
+)
+All require authMiddleware + adminMiddleware + limiter.
+
+Main endpoints (from routes & README):
+
+GET /admin/overview
+Dashboard stats (total salespersons, assignments, verified/suspicious visits, etc.).
+GET /admin/salesperson/:id/tracking
+Detailed tracking data for a salesperson.
+POST /admin/assign-location
+Creates Assignment with:
+salespersonId, date, places[] (name, lat, lng, radius).
+GET /admin/live-locations
+Live map data from Salesperson.currentLocation.
+GET /admin/salespersons
+List of salespersons (with active filter).
+Salesperson management:
+POST /admin/salespersons (create)
+PUT /admin/salespersons/:id (update)
+DELETE /admin/salespersons/:id (soft delete)
+DELETE /admin/salespersons/:id/permanent (hard delete)
+PATCH /admin/salespersons/:id/reactivate
+Rating controls: PATCH /admin/salespersons/:id/rating, POST /admin/update-all-ratings.
+Geocoding helper: POST /admin/geocode (backend uses utils/geocoding).
+4.4 Visit reports (
+visitReportRoutes.js
+, 
+visitReportController.js
+)
+List & filter
+GET /visit-reports/all (admin): all VisitReport docs, populated salesperson and assignment.
+GET /visit-reports/salesperson/:salespersonId (admin): by salesperson.
+Single report
+GET /visit-reports/:reportId:
+Uses authMiddleware only (no admin check) – can be seen by authenticated user.
+Stats
+GET /visit-reports/stats:
+Returns counts: total, verified, suspicious, first‑time vs follow‑up, competitor info count.
+Export
+GET /visit-reports/export/csv:
+Generates CSV with all report fields for Excel analysis.
+4.5 Expenses (
+expenseRoutes.js
+, 
+expenseController.js
+)
+Salesperson
+POST /expenses:
+Creates Expense (date, amount, category, description, optional billPhotoUrls).
+Uploads under uploads/expenses/.
+Notifies all admins of new expense.
+GET /expenses/my-expenses:
+Paged, filterable by status/date.
+POST /expenses/:id/notify-pending:
+After at least 2 minutes, salesperson can ping admins about pending expense.
+DELETE /expenses/:id:
+Can delete only pending expenses they own; deletes associated files.
+Admin
+GET /expenses/all:
+Paged, filterable by status, salesperson, date.
+PATCH /expenses/:id/status:
+Approve/reject, with adminNotes.
+Updates rating of salesperson.
+Sends notification and email.
+GET /expenses/stats:
+Aggregated stats by status and totals.
+GET /expenses/export:
+Exports to Excel (.xlsx).
+4.6 Notifications (
+notificationRoutes.js
+, 
+notificationController.js
+, 
+Notification.js
+)
+User notification center
+GET /notifications:
+Paged list, optional unreadOnly.
+GET /notifications/unread-count.
+PATCH /notifications/:id/read, PATCH /notifications/mark-all-read.
+DELETE /notifications/:id, DELETE /notifications.
+Admin create broadcast
+POST /notifications/create:
+Admin‑only, with:
+notificationRateLimit, validateNotificationData, preventNotificationSpam middleware.
+Can send to:
+recipients: 'all' or array of user IDs.
+System notifications
+createSystemNotification(recipientId, title, message, type, data)
+:
+Used from sales/expense controllers for auto alerts.
+Cleanup helpers:
+cleanupExpiredNotifications
+, 
+cleanupOldNotifications
+.
+Model:
+Fields: title, message, type, recipient, sender, data, isRead, category, priority, expiresAt.
+Indexes and TTL on expiresAt.
+5. Key data models (MongoDB)
+Salesperson (
+Salesperson.js
+)
+Identity: name, email (unique), password (hashed), role (admin/salesperson).
+Status: isActive, dateJoined, lastActive.
+Location: currentLocation { lat, lng }.
+Performance:
+rating (0–5).
+performanceStats:
+totalVisits, approvedVisits, rejectedVisits, totalExpenses, approvedExpenses.
+Method calculateRating():
+Approval rate → 0–4 stars.
+Bonus 0.5 star for >50 visits.
+Bonus 0.5 star for >90% approval and >10 visits.
+Capped at 5, rounded to nearest 0.5.
+Assignment (
+Assignment.js
+)
+salespersonId, date.
+places[]:
+name, lat, lng, radius (default 100m),
+visit info: visited, verified, photoUrl, visitedAt,
+travel info: distanceTraveled, travelTime, startLocation.
+VisitReport (
+VisitReport.js
+)
+Links: salespersonId, assignmentId, placeId.
+Visit info: visitDate, timeIn, timeOut, typeOfVisit.
+Company/mill details, competitor details, customer requirement, siteVisited flags.
+GPS & verification: photoUrl, additionalPhotoUrls, lat, lng, distanceFromTarget, isSuspicious, verified.
+Expense (
+Expense.js
+)
+salesperson, date, amount, category, description.
+billPhoto, billPhotoUrls[].
+Workflow: status (pending/approved/rejected), adminNotes, submittedAt, reviewedAt, reviewedBy.
+Notification (
+Notification.js
+)
+As described above, includes static helpers for unread counts and marking read.
+PhotoUpload (
+PhotoUpload.js
+)
+Simplified legacy logging of GPS photo uploads tied to assignments.
+6. Frontend behaviour and flows
+6.1 Authentication flow
+Login page (
+Login.jsx
+)
+Posts { email, password } to 
+authAPI.login
+ → /auth/login.
+On success:
+Stores token and user in localStorage.
+Redirects:
+Admin → /admin/dashboard.
+Salesperson → /dashboard.
+On mount:
+If a valid token & user already exist, auto‑redirect based on role.
+Global API layer (
+api.js
+)
+Sets baseURL from VITE_API_URL or Render backend URL.
+Request interceptor:
+Reads token from localStorage, sets Authorization: Bearer <token>.
+Response interceptor:
+On 401, clears localStorage and redirects to /login.
+6.2 Salesperson dashboard (
+Dashboard.jsx
+)
+Ensures user is logged in and not admin (else redirect).
+On load:
+Calls:
+salesAPI.getAssignments(user.id)
+ → list of assignments.
+salesAPI.getMyRating()
+ → rating & performanceStats.
+Geolocation → updates current location via 
+salesAPI.updateLocation
+.
+Uses NotificationContext to:
+Request browser notification permission.
+Show a welcome toast.
+Periodically refreshes rating every 30s.
+UI:
+Top stats (rating, total visits, expenses, etc.).
+Map showing current location and assigned places (MapComponent).
+Cards to:
+Create expense (/expenses/create),
+View expenses,
+View notifications.
+For each assignment and place:
+If not visited → “Visit Location” button → /visit/:assignmentId/:placeId.
+If visited → status pill:
+Verified or Suspicious based on backend flags.
+6.3 Admin dashboard (
+AdminDashboard.jsx
+)
+Ensures user is admin (else redirect).
+On load:
+adminAPI.getOverview()
+ → metrics for cards.
+adminAPI.getAllSalespersons()
+ → active salespersons list.
+Requests notification permission and shows admin‑welcome message.
+UI:
+Stats cards:
+Total salespersons, assignments, verified/suspicious visits, etc.
+Quick actions:
+Assign locations,
+View live map,
+View visit reports,
+View expense reports,
+Manage salespersons,
+Notifications & analytics.
+Salespersons table:
+Name, email, last login, last active, last known location.
+“View Details” → /admin/tracking/:id.
+7. End‑to‑end day‑in‑the‑life flows
+7.1 Admin
+Logs in (/auth/login).
+Goes to /admin/assign:
+Creates assignments for each salesperson, with date + places (GPS).
+Monitors /admin/map:
+Sees live locations (from /admin/live-locations).
+Reviews visits:
+/admin/visit-reports:
+Filters verified/suspicious, exports CSV, checks details.
+Reviews expenses:
+/admin/expense-reports:
+Filters by status/salesperson, approves/rejects, adds notes.
+Salesperson rating auto‑updates; notifications and emails are sent.
+Sends broadcast notifications if needed (/notifications/create).
+7.2 Salesperson
+Logs in on mobile browser:
+Gets token & cookie.
+/dashboard:
+Sees today’s assignments, locations on map, and their rating.
+App updates their live GPS to backend.
+For each assigned place:
+Clicks “Visit Location” → /visit/:assignmentId/:placeId.
+Fills the full visit form, attaches one or more photos.
+Submits:
+Backend verifies GPS distance → Verified or Suspicious.
+Visit report and photo are stored; admin is notified.
+After the day:
+Fills expenses in /expenses/create with bill photos.
+Tracks approval and stats in /expenses/view.
+Checks notifications in /notifications:
+Sees visit verification status, expense approvals, admin messages
+8. Vendor pitch guide – how to present this solution
+
+Goal
+Explain clearly to a vendor or decision-maker why this Sales Tracker is valuable for their business, and how it can be implemented with low risk and high return.
+
+Who you are talking to
+Typically you are speaking to:
+- Business owner, director, or sales head of a company with field sales team.
+- Sometimes IT head or operations manager who will check feasibility.
+
+60-second elevator pitch (short version you can memorize)
+“We have built a Sales Tracker system that gives you full visibility of your field sales team. Admins can assign GPS-based locations, salespeople check in with photos and automatic GPS verification, and you get clean visit reports, live tracking, and expense control in a single dashboard. It reduces fake visits, controls leakages in expenses, and gives you real data to manage performance – without forcing your team to learn a complicated system.”
+
+Opening the conversation – problem first
+Start with problems they already feel:
+- How do you currently track whether field visits actually happen at the customer location?
+- Do you rely only on WhatsApp photos and verbal updates from salespeople?
+- Do you face fake or duplicate claims for travel and daily expenses?
+- When a salesperson leaves the company, how easily can you check what visits they actually did?
+
+Then connect those pains to the solution:
+- Our system replaces manual WhatsApp/Excel tracking with a proper platform.
+- Every visit has GPS verification and photo proof so you know exactly what happened.
+- Expenses are digital, easy to approve, and linked to salesperson performance.
+
+How to position the product (benefits language)
+Focus on business benefits, not only features:
+- Control and transparency
+  - Live map of all salespersons with real-time locations.
+  - GPS-verified visits reduce fake check-ins and save management time.
+- Higher quality field execution
+  - Standard visit report form ensures every visit captures complete data.
+  - Suspicious visits (location mismatch) are clearly flagged for review.
+- Expense optimization
+  - Digital expense submissions with photos of bills.
+  - Approval workflow + Excel export for accounts team.
+- Better performance management
+  - Automatic rating system based on approved visits and expenses.
+  - Data for incentives, appraisals, and coaching low performers.
+- Compliance and audit trail
+  - Complete history of who visited which client, when, and with which proof.
+
+How to structure a 20–30 minute pitch meeting
+1. Warm-up (2–3 minutes)
+   - Introduce yourself and your company.
+   - Ask how they are currently managing field sales tracking.
+
+2. Understand their current process (5 minutes)
+   - Listen to how they assign routes, collect reports, and approve expenses.
+   - Note specific pain points (e.g., fake visits, missing data, late reports).
+
+3. Present the concept (5 minutes)
+   - Use simple story:
+     - “Admin creates assignments for each salesperson with GPS locations.”
+     - “Salesperson opens mobile-friendly dashboard, goes to customer, clicks Visit, takes photo, submits report.”
+     - “System checks GPS, marks verified or suspicious, and updates dashboard.”
+     - “Expenses and notifications are all in the same system.”
+
+4. Demo flow (8–10 minutes) – what to show
+   - Show login as salesperson:
+     - Dashboard with assignments and map.
+     - How to open a visit, upload photo, and submit report.
+   - Show login as admin:
+     - Admin dashboard with stats (total visits, suspicious uploads).
+     - Live locations map.
+     - Visit reports list + filters + CSV export.
+     - Expense reports screen: pending/approved/rejected, Excel export.
+     - Notifications screen: how admins get alerts for suspicious visits and expenses.
+
+5. Talk about implementation (5 minutes)
+   - Setup steps:
+     - Host backend and frontend (can use your existing Render/Netlify/Vercel flow).
+     - Create admin accounts.
+     - Import or create salespersons list.
+     - Train admins (1–2 sessions) and field team (short demo).
+   - Timeline:
+     - Pilot with 5–10 salespersons in 1–2 weeks.
+     - Full rollout in 4–6 weeks depending on team size.
+   - IT requirements:
+     - Just a browser and smartphones with GPS + internet.
+     - No need for each user to install a heavy native app.
+
+6. Commercial and ROI angle
+Do not only quote price; talk about savings:
+- Reduction in fake or unverified visits.
+- Better control of daily travel/food/fuel expenses.
+- Less time spent on manual follow-up and Excel consolidation.
+- Better conversion because managers can coach based on real data.
+You can say, for example:
+- “If you prevent even 2–3 fake visits or wrong expense claims per salesperson per month, the system pays for itself.”
+
+Handling common objections
+1) “Our sales team may resist or feel monitored.”
+- Response: Position it as a tool to prove genuine hard work.
+- Highlight rating and visibility benefits for good performers.
+
+2) “Will it be difficult to use for our team?”
+- Response: Show simple mobile screens.
+- Explain that basic actions are just: Login → See map → Visit → Take photo → Submit.
+
+3) “We already use WhatsApp/Excel, why change?”
+- Response: WhatsApp is unstructured and unsearchable; Excel is manual.
+- This system gives structured data, GPS verification, exports, and dashboards in one place.
+
+Short sample script you can customize
+“Right now, your sales team is doing a lot of hard work in the field, but you cannot see everything clearly. Some visits are genuine, some reports are incomplete, and expenses often come as WhatsApp photos and loose bills.
+
+We built a Sales Tracker that solves this in a practical way. Admins assign locations with GPS, salespersons open a simple mobile screen, visit the customer, click Visit, take a photo, and submit a detailed report. The system automatically checks GPS, flags suspicious visits, and updates your dashboard.
+
+On the admin side you get:
+- Live map of who is where.
+- Verified vs suspicious visits.
+- Complete visit history and reports in Excel.
+- Full control over expenses with photo proofs and approval flow.
+
+Implementation is simple – we can start with a small pilot team in a couple of weeks, and if you like the results, scale to your full field force. The goal is not to police your team, but to reward genuine work and reduce leakages in visits and expenses.”
+
+How to close the meeting
+- Ask for a small pilot: “Can we start with 5–10 salespersons for one month?”
+- Agree on:
+  - Pilot start date.
+  - Who will be admin champion on their side.
+  - What success metrics they care about (e.g., verified visits %, expense turnaround time).
+
+This section can be reused as your talking script and as written material you can share as a PDF or email after the meeting.

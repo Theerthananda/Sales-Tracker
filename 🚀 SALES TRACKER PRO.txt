@@ -1,0 +1,1154 @@
+🚀 SALES TRACKER PRO
+Transforming Field Sales Operations into Profit Centers
+Complete PowerPoint Presentation for MSGP Infra Tech Pvt. Ltd.
+SLIDE 1: TITLE SLIDE
+🎯 Opening Impact
+text
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                    🚀 SALES TRACKER PRO                      ║
+║         The Complete Field Sales Management Solution         ║
+║                                                              ║
+║              Transforming Field Operations into              ║
+║                  Profit Centers & Accountability             ║
+║                                                              ║
+║                         Presented to:                        ║
+║              MSGP Infra Tech Pvt. Ltd.                       ║
+║                    November 2025                             ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+Key Visual: MSGP logo (top left) + Sales Tracker Pro logo (top right)
+
+Text Overlay:
+
+One Simple Question:
+
+How much profit is your company leaving on the table every single day?
+
+SLIDE 2: THE HIDDEN COST OF INVISIBLE OPERATIONS
+Where Money Disappears
+📊 Current State Analysis
+Visual Layout: Three-column design showing Problem → Impact → Cost
+
+Column 1: THE PROBLEM
+🚫 Invisible Sales Operations
+
+No real-time location visibility
+
+Cannot verify actual visits
+
+Lost opportunities from missed interactions
+
+Untracked visit quality
+
+⚠️ Unverified Claims & Fake Reporting
+
+Salespersons claim visits never taken
+
+No photo/GPS evidence
+
+Data manipulation opportunities
+
+Admin time wasted verifying claims
+
+💸 Massive Operational Inefficiency
+
+Inefficient route planning → wasted fuel
+
+Field force = up to 30% of sales expenses
+
+Cost per visit: ₹75-₹200
+
+Annual per-employee cost: ₹1,20,000
+
+📋
+
+Visual Design & Layout Instructions
+COLOR SCHEME RECOMMENDATION
+Primary Colors
+Deep Blue: #1E3A8A (Professional, trustworthy)
+
+Green Accent: #10B981 (Success, growth, positive)
+
+Orange Accent: #F97316 (Warning, urgency, attention)
+
+White: #FFFFFF (Clean background)
+
+Dark Gray: #1F2937 (Text, headers)
+
+Secondary Colors
+Light Gray: #F3F4F6 (Background boxes)
+
+Red: #EF4444 (Negative, alerts)
+
+Yellow: #FBBF24 (Caution, investigation)
+
+SLIDE-BY-SLIDE VISUAL RECOMMENDATIONS
+SLIDE 1: TITLE SLIDE
+Layout: Full-screen background image or gradient
+
+Visual Elements:
+
+MSGP Infra Tech logo (top-left corner, 10% opacity)
+
+Sales Tracker Pro logo (top-right corner, 10% opacity)
+
+Centered large title "SALES TRACKER PRO"
+
+Gradient background (Deep Blue to Light Blue)
+
+Subtitle: "Transforming Field Sales Operations"
+
+Key question at bottom: "How much profit is your company leaving on the table every single day?"
+
+Font:
+
+Title: 66pt, Bold, White
+
+Subtitle: 40pt, Regular, White
+
+Question: 28pt, Bold, Orange Accent
+
+SLIDE 2: THE HIDDEN COST OF INVISIBLE OPERATIONS
+Layout: Three-column card design
+
+Left Column (Red theme):
+
+Header: "🚫 THE PROBLEM"
+
+Icon cards for each issue
+
+5 problem statements
+
+Background: Light Red (#FEE2E2)
+
+Middle Column (Orange theme):
+
+Header: "⚠️ IMPACT"
+
+Bullet points
+
+Show cascading effects
+
+Background: Light Orange (#FEF3C7)
+
+Right Column (Green theme):
+
+Header: "💰 THE COST"
+
+Financial table
+
+Red numbers showing losses
+
+Background: Light Green (#ECFDF5)
+
+Chart Element:
+
+Large table showing:
+
+Annual Salaries: ₹60,00,000
+
+Travel & Fuel: ₹12,00,000
+
+Hidden Losses: -₹9,00,000
+
+Color-coded negative values in RED
+
+Font Sizes:
+
+Headers: 32pt Bold
+
+Body: 18pt Regular
+
+Numbers: 24pt Bold
+
+SLIDE 3: WHY THIS MATTERS NOW
+Layout: Information-rich with callout boxes
+
+Background: Light Blue (#EFF6FF)
+
+Visual Elements:
+
+MSGP company info (icon + facts)
+
+4 "Market Reality" boxes with icons
+
+Industry benchmarks as visual bars
+
+Statistics in eye-catching boxes
+
+Key opportunity highlighted in GREEN box
+
+Callout Boxes:
+
+Each with icon, header, 2-3 bullet points
+
+Border-left in accent color
+
+Hover effect (if digital presentation)
+
+Bar Charts:
+
+Show percentage improvements (20-30% savings, 15-25% productivity)
+
+Color gradient from left to right
+
+SLIDE 4: WHAT IS SALES TRACKER PRO
+Layout: Feature matrix with icons
+
+Top Section:
+
+Core value proposition in large quote box
+
+Background: Dark Blue, Text: White
+
+Icon: checkmark or lightbulb
+
+Middle Section (3 columns):
+
+Column 1: Backend Stack
+
+Icon: Server/Database
+
+Technology list with small icons
+
+Code-like font (Courier New, 14pt)
+
+Column 2: Frontend Stack
+
+Icon: Browser/Mobile
+
+Technology list with small icons
+
+Code-like font (Courier New, 14pt)
+
+Column 3: Infrastructure
+
+Icon: Cloud/Servers
+
+Features with bullet points
+
+Regular font (18pt)
+
+Bottom Section:
+
+"99.9% Uptime SLA" - in bold GREEN box
+
+"Scalable Architecture" - in bold GREEN box
+
+"Enterprise Security" - in bold GREEN box
+
+SLIDE 5: FOR SALESPERSONS - KEY FEATURES
+Layout: Feature showcase with icons
+
+Visual Style: 4 feature cards arranged in 2x2 grid
+
+Card 1: Interactive Location Mapping
+
+Large map icon
+
+Feature list
+
+Color: Light Blue background
+
+Call-to-action: "Easy Navigation"
+
+Card 2: Visit Execution & Documentation
+
+Checklist icon
+
+Feature list
+
+Color: Light Green background
+
+Call-to-action: "Comprehensive Capture"
+
+Card 3: Real-Time Accountability
+
+GPS/Location icon
+
+Feature list
+
+Color: Light Orange background
+
+Call-to-action: "Instant Verification"
+
+Card 4: Photo Verification System
+
+Camera icon
+
+Feature list
+
+Color: Light Purple background
+
+Call-to-action: "Secure Storage"
+
+Each Card:
+
+240x200px size
+
+Icon: 60x60px
+
+Drop shadow effect
+
+Hover: Slight scale increase (digital)
+
+SLIDE 6: FOR MANAGERS/ADMINS - KEY FEATURES
+Layout: Dashboard mockup + feature descriptions
+
+Left Side (40%):
+
+Simplified screenshot of admin dashboard
+
+Show: Map with colored pins, metrics, buttons
+
+Make it professional but not too technical
+
+Right Side (60%):
+
+4 feature sections:
+
+Live Monitoring Dashboard (Green)
+
+Location Assignment & Planning (Blue)
+
+Verification & Fraud Detection (Orange)
+
+Analytics & Reporting (Purple)
+
+Each Section:
+
+Header with icon
+
+3-4 bullet points
+
+Color-coded box background
+
+Bottom:
+
+"Unlock Complete Visibility" - in bold GREEN
+
+SLIDE 7: THE DETAILED VISIT REPORT SYSTEM
+Layout: Form mockup + data structure
+
+Top Half:
+
+Simulated form on left showing fields:
+
+Visit Metadata
+
+Company Information
+
+Business Details
+
+Competitor Intelligence
+
+Customer Requirements
+
+Site Verification
+
+GPS Location Proof
+
+Bottom Half:
+
+Data structure visualization showing relationships
+
+Simple diagram: Form → Database → Reports
+
+Icons connecting the flow
+
+Color Coding:
+
+Different section colors in form
+
+Show depth with shadows
+
+Callout: "20+ Data Points Captured Per Visit" - in large GREEN text
+
+SLIDE 8: HOW IT WORKS - THE WORKFLOW
+Layout: Process flow diagram
+
+Horizontal Flow Diagram:
+
+text
+STEP 1           STEP 2           STEP 3           STEP 4
+Admin            Salesperson      Visit            Automatic
+Prepares    →    Notified    →    Execution   →    Verification
+(5 min)          (Instant)        (Real-time)      (Instant)
+     ↓                                                   ↓
+     └───────────────────────────────────────────────────┘
+                            ↓
+                      STEP 5 & 6
+                   Manager Review
+                 Business Intelligence
+Each Step Box:
+
+200x120px
+
+Icon + title
+
+2-3 bullet descriptions
+
+Arrow connecting to next (larger font)
+
+Color progression: Blue → Green → Orange → Green
+
+Detailed Breakdown Section Below:
+
+6 subsections, each with:
+
+Step number badge
+
+Screenshot/mockup
+
+Process description
+
+Key outcome highlighted in GREEN
+
+Total Height: Take up 70% of slide
+
+SLIDE 9: FINANCIAL IMPACT - THE NUMBERS
+Layout: Multi-section financial comparison
+
+Section 1: Investment (Top)
+Clean table showing costs
+
+Total highlighted: ₹28,000-₹50,000
+
+Per-user calculation: ₹560-₹1,000
+
+Color: Light Blue
+
+Section 2: Returns (Middle)
+6 benefit boxes in 2x3 grid
+
+Each showing:
+
+Benefit name
+
+Icon
+
+Before → After comparison
+
+₹ amount in GREEN
+
+Benefit Boxes:
+
+Fuel Optimization: ₹3,00,000
+
+Fraud Elimination: ₹4,00,000
+
+Admin Efficiency: ₹1,40,000
+
+Productivity Gains: ₹4,00,000
+
+Territory Optimization: ₹3,50,000
+
+Compensation Optimization: ₹2,00,000
+
+Section 3: ROI Summary (Bottom)
+Large visual showing:
+
+Investment: ₹40,000 (Small RED box)
+
+Returns: ₹12-20 Lakh (Large GREEN box)
+
+ROI: 2,985% (HUGE number, 72pt, GREEN)
+
+Payback: 10 days (18pt, BOLD)
+
+Color Usage:
+
+Investment: RED (#FEE2E2)
+
+Benefits: GREEN (#ECFDF5)
+
+ROI/Savings: DEEP GREEN (#047857)
+
+SLIDE 10: WHY SALES TRACKER PRO WINS
+Layout: Competitive comparison table
+
+Visual Option 1: Comparison Matrix
+
+Rows: 12 features
+
+Columns: Sales Tracker Pro, Generic Tools, Spreadsheet
+
+Green checkmarks (✅) for Sales Tracker
+
+Red X marks (❌) for competitors
+
+Make Sales Tracker column stand out (thicker border, slight shadow)
+
+Visual Option 2: Three Columns
+Each column shows:
+
+Header: Solution name + icon
+
+Pros (Green bullets)
+
+Cons (Red bullets)
+
+Price point (Largest font)
+
+Winner badge on Sales Tracker Pro
+
+Recommendation Use: Comparison Matrix is more professional
+
+Colors:
+
+Sales Tracker Pro: Green theme
+
+Generic Tools: Orange theme
+
+Spreadsheet: Red theme
+
+Callout Box (Bottom):
+
+"Perfect Fit for Waste Management Industry" - in GREEN
+
+3 reasons listed below
+
+SLIDE 11: REAL-WORLD USE CASES
+Layout: 4 case study cards
+
+Each Card (25% width):
+
+Title/Scenario at top
+
+"BEFORE" section (Red background)
+
+3-4 bullet points showing problems
+
+Negative icons
+
+Arrow (Large ❌ symbol)
+
+"AFTER" section (Green background)
+
+3-4 bullet points showing solutions
+
+Positive icons
+
+"Impact" line at bottom (Bold GREEN text with metric)
+
+Cards:
+
+B2B Bulk Waste Buyer Visit
+
+Territory Optimization
+
+Fraud Prevention & Accountability
+
+Customer Visit Intelligence & CRM
+
+Typography:
+
+Card Title: 20pt Bold
+
+BEFORE/AFTER Headers: 14pt Bold
+
+Bullets: 12pt Regular
+
+Impact: 13pt Bold Green
+
+SLIDE 12: SECURITY & COMPLIANCE
+Layout: Three sections with icons
+
+Section 1: Data Security (Top-left)
+
+Lock icon (large, 80x80px)
+
+4 security features with small icons
+
+Color: Blue background (#DBEAFE)
+
+Section 2: Privacy & Compliance (Top-right)
+
+Shield icon (large, 80x80px)
+
+4 compliance features with small icons
+
+Color: Green background (#ECFDF5)
+
+Section 3: Operational Security (Bottom)
+
+Checkmark icon (large, 80x80px)
+
+5 operational security features with small icons
+
+Color: Purple background (#F3E8FF)
+
+Bottom Banner:
+
+"Enterprise-Grade Protection"
+
+Dark Blue background
+
+White text (24pt Bold)
+
+SLIDE 13: IMPLEMENTATION ROADMAP
+Layout: Timeline visualization
+
+Visual Style: Gantt Chart
+Left axis: Weeks/Months (Y-axis)
+
+Top axis: Tasks (X-axis)
+
+Color bars showing duration:
+
+Week 1: Blue (Planning)
+
+Week 2: Blue (Preparation)
+
+Week 3: Orange (Pilot)
+
+Week 4: Green (Launch)
+
+Months 1-3: Green (Support)
+
+Milestones:
+Week 1 end: ✓ Systems Ready
+
+Week 2 end: ✓ Team Trained
+
+Week 3 end: ✓ Pilot Success
+
+Week 4 end: ✓ Production Ready
+
+Month 3: ✓ ROI Verified
+
+Right Sidebar:
+Success metrics for each phase
+
+Green checkmarks when criteria met
+
+SLIDE 14: ADDRESSING COMMON OBJECTIONS
+Layout: Accordion or tabbed design
+
+6 Objection Cards (Expandable):
+
+Each card shows:
+
+Header: "🤔 Objection #: [Statement]"
+
+Response summary visible
+
+Expandable for full answer
+
+Evidence/proof (testimonial or stat)
+
+Card Styling:
+
+100% width
+
+Border-left: 4px thick (Orange)
+
+When expanded, background color light orange
+
+Evidence box: Green background with checkmark
+
+Example:
+
+text
+┌─────────────────────────────────┐
+│ 🤔 OBJECTION: "Will team resist?"│
+│ ❱ (clickable to expand)         │
+├─────────────────────────────────┤
+│ ✓ Benefits to team              │
+│ ✓ 95% adoption rate proven      │
+│ ✓ Includes comprehensive training│
+└─────────────────────────────────┘
+SLIDE 15: THE ASK & NEXT STEPS
+Layout: Action-oriented with clear CTA
+
+Top Section:
+
+"WHAT WE'RE PROPOSING" (24pt Bold)
+
+Two boxes side-by-side:
+
+Box 1: Phase 1 - Pilot (Left)
+
+Color: Light Orange
+
+Duration: 4 weeks
+
+Investment: ₹8,000-12,000
+
+Expected: Prove 50% ROI
+
+CTA Button: "Start Pilot"
+
+Box 2: Phase 2 - Full Rollout (Right)
+
+Color: Light Green
+
+Duration: Ongoing
+
+Investment: ₹25,000-40,000/year
+
+Expected: ₹12-20 Lakh profit
+
+CTA Button: "Full Deployment"
+
+Middle Section:
+
+Timeline showing 4 weeks of next steps
+
+Each week highlighted with icon and description
+
+Colored progress bar
+
+Bottom Section:
+
+📞 Contact information
+
+Email: vikasvs007@gmail.com
+
+"Schedule Your 30-Minute Demo" (Large CTA Button)
+
+Color: Deep Green with white text
+
+SLIDE 16: INVESTMENT SUMMARY & ROI PROMISE
+Layout: Financial dashboard
+
+Top Banner:
+
+"EXECUTIVE SUMMARY" (28pt Bold White on Dark Blue)
+
+3 Key Metrics (Large Display):
+
+text
+┌──────────────────┬──────────────────┬──────────────────┐
+│   INVESTMENT     │   ANNUAL PROFIT  │   ROI PERCENTAGE │
+│   ₹40,000        │   ₹12,75,000     │   2,450%         │
+│   (Small)        │   (Large Green)   │   (Huge Orange)  │
+└──────────────────┴──────────────────┴──────────────────┘
+Detailed Breakdown Table:
+
+3 columns: Metric, Year 1, Year 5
+
+Rows: Investment, Benefits, Net Profit, ROI
+
+Alternating light gray backgrounds
+
+Key numbers in bold
+
+Risk Analysis Section:
+
+4 risk categories
+
+Green traffic lights (🟢) for all
+
+Assessment: "Very Low Risk"
+
+5-Year Projection:
+
+Simple line chart showing cumulative benefit
+
+Year 1: ₹12 Lakh
+
+Year 5: ₹55 Lakh
+
+Upward trending line in GREEN
+
+SLIDE 17: THE COMPETITIVE LANDSCAPE
+Layout: Market forces visualization
+
+4 Drivers (Columns):
+
+Industry Maturation (Icon: Growth chart)
+
+Waste management growing 15-20%
+
+Color: Green
+
+Cost Awareness (Icon: Wallet)
+
+Fuel prices rising
+
+Profit margins under pressure
+
+Color: Orange
+
+Technology Maturity (Icon: Computer)
+
+GPS/Mobile proven
+
+Cloud robust
+
+Color: Blue
+
+Customer Expectations (Icon: Users)
+
+Verification required
+
+Real-time updates expected
+
+Color: Purple
+
+Bottom Section - Competitive Urgency:
+
+Left side (Green): "If MSGP Acts Now"
+
+First-mover advantage ✅
+
+Technology differentiator ✅
+
+Cost advantage ✅
+
+Right side (Red): "If MSGP Waits"
+
+Competitors will adopt ❌
+
+Lose ₹12 lakh annually ❌
+
+Harder to scale later ❌
+
+SLIDE 18: SUCCESS STORY
+Layout: Before/After metrics dashboard
+
+Company Profile (Top):
+
+Waste management company, 50 field staff
+
+3-month case study
+
+Before Metrics (Left column, Red theme):
+
+Visits/day: 5
+
+False reports/month: 120
+
+Admin hours/day: 3
+
+Route efficiency: 0%
+
+Performance visibility: None
+
+Arrow: HUGE CHANGE ARROWS →
+
+After Metrics (Right column, Green theme):
+
+Visits/day: 8
+
+False reports/month: 8
+
+Admin hours/day: 0.5
+
+Route efficiency: 25%
+
+Performance visibility: 100%
+
+Bottom: Financial Impact Table
+
+text
+3-Month Benefit:        ₹3,35,000
+Investment:             ₹15,000
+ROI:                    2,233%
+Payback:                3 days
+SLIDE 19: THE VISION - FUTURE ROADMAP
+Layout: Timeline with expanding vision
+
+Year 1: Foundation (Left)
+
+Color: Blue
+
+Features: Sales Tracker Pro, GPS verification, Reports
+
+Timeline bar: 12 months
+
+Icon: Foundation/Base
+
+Year 2: Optimization (Center-left)
+
+Color: Orange
+
+Features: AI routes, Predictive scoring, Native app
+
+Timeline bar: 12 months
+
+Icon: Gears
+
+Year 3+: Ecosystem (Right)
+
+Color: Green
+
+Features: Blockchain tracking, IoT, CRM integration
+
+Timeline bar: Ongoing
+
+Icon: Network
+
+Potential Value: ₹2-5 Crore (Large GREEN text)
+
+Connected Flow:
+
+Arrows showing progression
+
+Each stage building on previous
+
+Exponential growth curve
+
+SLIDE 20: CLOSING - THE DECISION
+Layout: Binary choice presentation
+
+Top: THE OPPORTUNITY
+
+5 bullet points in GREEN boxes
+
+Why now is critical
+
+Middle: THE CHOICE (Two columns)
+
+Option A: Continue As Is (Red theme)
+
+Header: ❌ Status Quo
+
+5 negative outcomes
+
+Bottom: ₹9+ lakh/year unrecovered
+
+Color: #FEE2E2
+
+VS
+
+Option B: Adopt Sales Tracker Pro (Green theme)
+
+Header: ✅ Transformation
+
+5 positive outcomes
+
+Bottom: ₹12+ lakh/year recovered
+
+Color: #ECFDF5
+
+Bottom: The Stark Reality
+
+Large quote: "Every single day of delay = ₹25,000 lost"
+
+Color: Deep Orange
+
+Font: 32pt Bold
+
+Final CTA:
+
+"Let's Schedule Your Demo This Week"
+
+Button: Green with white text (40pt)
+
+Subtext: "30-minute discovery call"
+
+FINAL SLIDE: THANK YOU
+Layout: Professional closing
+
+Background: Gradient Dark Blue to Black
+
+Centered Content:
+
+Large "THANK YOU" (66pt White Bold)
+
+Subheading: "Sales Tracker Pro - Transforming Operations"
+
+Key message: "Ready to recover ₹12+ Lakh annually?"
+
+Contact email: vikasvs007@gmail.com (24pt, Green)
+
+Website/social (if applicable)
+
+Bottom Corner:
+
+QR code linking to pilot signup
+
+Calendar link for scheduling demo
+
+ANIMATION RECOMMENDATIONS
+Slide Transitions
+Default: Fade (300ms)
+
+Special: Wipe left for problem→solution slides
+
+Object Animations
+Charts: Animate bars/numbers on entrance
+
+Tables: Animate rows sequentially
+
+Callout boxes: Slide in from left with bounce
+
+Metrics: Counter animation (0 → final number)
+
+Interactive Elements (If Using Digital Presentation)
+Expandable/collapsible objection cards
+
+Clickable feature cards showing details
+
+Hover effects on comparison tables
+
+Navigation buttons between sections
+
+POWERPOINT CREATION CHECKLIST
+Design Elements:
+
+ Consistent color scheme throughout
+
+ Professional fonts (Helvetica/Calibri body, sans-serif headers)
+
+ Icons consistent (all from same library like FontAwesome)
+
+ Spacing consistent (20px gutters minimum)
+
+ Image quality high-res (300dpi)
+
+Content:
+
+ All statistics cited
+
+ Financial numbers match across slides
+
+ No typos or grammatical errors
+
+ Key points emphasized in bold/color
+
+Visuals:
+
+ Charts properly labeled
+
+ Tables easy to read (high contrast)
+
+ Images relevant and professional
+
+ Logos proper placement
+
+Professional Polish:
+
+ Slide numbers in footer
+
+ Date in footer
+
+ Company name in footer
+
+ Consistent layout grid
+
+POWERPOINT TEMPLATE STRUCTURE (Outline)
+text
+PowerPoint Presentation: "Sales Tracker Pro - MSGP Pitch"
+
+├─ Slide 1: Title Slide
+├─ Slide 2: The Problem (Hidden Costs)
+├─ Slide 3: Why This Matters (Industry Context)
+├─ Slide 4: What Is Sales Tracker Pro (Solution Intro)
+├─ Slide 5: For Salespersons (Features)
+├─ Slide 6: For Managers/Admins (Features)
+├─ Slide 7: Visit Report System (Data Capture)
+├─ Slide 8: How It Works (Workflow)
+├─ Slide 9: Financial Impact (ROI Analysis)
+├─ Slide 10: Why We Win (Competitive Advantage)
+├─ Slide 11: Real-World Use Cases (4 scenarios)
+├─ Slide 12: Security & Compliance
+├─ Slide 13: Implementation Roadmap
+├─ Slide 14: Addressing Objections
+├─ Slide 15: The Ask & Next Steps
+├─ Slide 16: Investment Summary & ROI
+├─ Slide 17: Competitive Landscape
+├─ Slide 18: Success Story / Metrics
+├─ Slide 19: Future Vision
+├─ Slide 20: The Decision / Closing
+└─ Slide 21: Thank You / Contact
+
+Total: 21 slides (45-60 minute presentation)
+This guide provides all the design specifications needed to create a professional, compelling PowerPoint presentation.
+
+Total presentation should take 1-2 hours to create in PowerPoint, Keynote, or Google Slides.📁 FILES PROVIDED
+You now have 3 comprehensive files ready to use:
+
+File 1: Sales_Tracker_Pitch_MSGP.md
+Purpose: Detailed sales pitch content
+
+Use: Source material for all talking points
+
+Contains: 13 slides + appendices with complete scripts
+
+Best For: Reading, reference, extracting quotes
+
+File 2: Sales_Tracker_Pro_PPT.md
+Purpose: Complete PowerPoint script in markdown
+
+Use: Convert to PowerPoint or use as speaker notes
+
+Contains: 20+ slides with full descriptions, data, and visuals
+
+Best For: Creating your actual PowerPoint presentation
+
+File 3: PPT_Design_Guide.md
+Purpose: Visual design specifications
+
+Use: Design guide while creating slides
+
+Contains: Color schemes, layouts, animation recommendations
+
+Best For: Making your presentation look professional
+
+🚀 STEP-BY-STEP: CREATE YOUR POWERPOINT
+STEP 1: Prepare Your Workspace (15 minutes)
+Install Tools:
+
+ Download PowerPoint, Keynote, or Google Slides
+
+ Gather logos (MSGP + Sales Tracker Pro)
+
+ Collect any images of Bengaluru, field teams, etc.
+
+Create New Presentation:
+
+Open PowerPoint
+
+Create blank presentation
+
+Save as: "Sales_Tracker_Pro_MSGP_Pitch.pptx"
+
+STEP 2: Set Up Master Slide (20 minutes)
+Create Consistent Design:
+
+Open Master Slide view (View → Slide Master)
+
+Set up footer:
+
+Insert footer with:
+
+Left: MSGP Infra Tech
+
+Center: Sales Tracker Pro
+
+Right: November 2025
+
+Slide numbers
+
+Create color palette:
+
+Deep Blue: #1E3A8A
+
+Green: #10B981
+
+Orange: #F97316
+
+Save as theme
+
+Set default fonts:
+
+Headers: Calibri 44pt Bold
+
+Body: Calibri 18pt Regular
+
+Exit master slide
+
+STEP 3: Build Title Slide (10 minutes)
+Slide 1: TITLE SLIDE
+
+Insert blank slide
+
+Add background:
+
+Insert → Shape → Rectangle (full slide)
+
+Fill with gradient (Deep B

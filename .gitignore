@@ -1,0 +1,80 @@
+# ==============================
+# Dependencies
+# ==============================
+**/node_modules/
+
+# ==============================
+# Environment variables and secrets
+# Keep example/template files in Git
+# ==============================
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.production.example
+
+# ==============================
+# Build output
+# ==============================
+**/dist/
+**/build/
+**/.vite/
+**/coverage/
+
+# ==============================
+# Runtime uploads and generated files
+# Keep the uploads directory placeholder
+# ==============================
+**/uploads/*
+!**/uploads/.gitkeep
+
+# ==============================
+# Logs and temporary files
+# ==============================
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# ==============================
+# Replit / cloud IDE state
+# ==============================
+.local/
+.replit
+.config/
+
+# ==============================
+# Operating system files
+# ==============================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==============================
+# Editor / IDE settings
+# ==============================
+.vscode/
+.idea/
+*.code-workspace
+
+# ==============================
+# Local certificates and private keys
+# ==============================
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ==============================
+# Deployment / tool caches
+# ==============================
+.vercel/
+.netlify/
+.turbo/
+
+
+server {.txt

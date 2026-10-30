@@ -1,0 +1,115 @@
+💡 Build a full-stack MERN (MongoDB + Express + React + Node.js) web app named **Sales Tracker**.
+
+The app should allow an admin to assign sales locations and track field salespersons by verifying that they actually visit those locations and upload real-time photo proofs with GPS coordinates.
+
+---
+
+### ⚙️ Backend (Node.js + Express + MongoDB)
+
+📁 Folder structure:
+backend/
+├── server.js
+├── config/db.js
+├── routes/
+│   ├── authRoutes.js
+│   ├── salesRoutes.js
+│   └── adminRoutes.js
+├── controllers/
+│   ├── authController.js
+│   ├── salesController.js
+│   └── adminController.js
+├── models/
+│   ├── Salesperson.js
+│   ├── Assignment.js
+│   └── PhotoUpload.js
+├── middleware/
+│   └── authMiddleware.js
+└── utils/
+    ├── calculateDistance.js
+    └── uploadToS3.js
+
+---
+
+### 🧩 Backend Requirements:
+
+**Database Models (Mongoose):**
+1. `Salesperson` → name, email, password, role, currentLocation {lat,lng}, lastActive.
+2. `Assignment` → salespersonId, date, array of places [{ name, lat, lng, radius, visited, photoUrl, visitedAt, verified }].
+3. `PhotoUpload` → salespersonId, assignmentId, lat, lng, photoUrl, timestamp, distanceFromTarget, isSuspicious.
+
+**API Endpoints:**
+| Method | Endpoint | Description |
+|--------|-----------|-------------|
+| POST | /auth/login | Login for admin or salesperson |
+| GET | /salesperson/:id/assignments | Get assigned locations for a salesperson |
+| POST | /sales/upload-photo | Upload photo with GPS coordinates |
+| GET | /admin/overview | Get total visits, suspicious uploads, etc. |
+| GET | /admin/salesperson/:id/tracking | Get route & photos of a salesperson |
+| POST | /admin/assign-location | Assign new location to a salesperson |
+| GET | /admin/live-locations | Get all salespersons' live coordinates |
+
+**Logic for `/sales/upload-photo`:**
+- Calculate GPS distance using `calculateDistance(lat1, lon1, lat2, lon2)`.
+- If distance ≤ 100m → mark location as visited.
+- Else → mark as suspicious.
+- Upload photo to `uploads/` or S3 (mock function is fine for now).
+
+**Security:**
+- JWT authentication for both admin and salesperson.
+- bcrypt for password hashing.
+- .env file for DB URI, JWT secret.
+
+---
+
+### 💻 Frontend (React with Vite or Create React App)
+
+📁 Folder structure:
+frontend/
+├── src/
+│   ├── pages/
+│   │   ├── Login.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── VisitPage.jsx
+│   │   ├── AdminDashboard.jsx
+│   │   ├── AdminMapView.jsx
+│   │   ├── AssignLocation.jsx
+│   ├── components/
+│   │   ├── MapComponent.jsx
+│   │   ├── PhotoUploadButton.jsx
+│   │   └── Navbar.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── api.js
+│   └── styles.css
+└── vite.config.js
+
+---
+
+### 🌐 Frontend Functionalities:
+
+**Salesperson Views:**
+- `/login` → Login page → calls `POST /auth/login`
+- `/dashboard` → Fetch assigned places (`GET /salesperson/:id/assignments`), show map with markers.
+- `/visit/:placeId` → Show details, allow photo upload (`POST /sales/upload-photo`)
+- Map shows salesperson’s current GPS location and assigned places.
+- Status indicators: ✅ visited, ⚠️ suspicious, ❌ not visited.
+
+**Admin Views:**
+- `/admin/login` → Login as admin.
+- `/admin/dashboard` → Calls `GET /admin/overview`
+- `/admin/map` → Uses Google Maps API or Leaflet to show:
+  - All salespersons’ locations (`GET /admin/live-locations`)
+  - Visited/suspicious pins
+  - Click a pin to see photo proof
+- `/admin/assign` → Assign new location (`POST /admin/assign-location`)
+
+**Map Integration:**
+Use Google Maps JavaScript API (free tier key).
+Each pin → different color based on status:
+- 🟢 Visited
+- 🔴 Not Visited
+- 🟡 Suspicious
+
+**Frontend API base URL:**
+```js
+const BASE_URL = "http://localhost:5000";
